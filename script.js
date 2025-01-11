@@ -39,4 +39,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
             event.target.remove();
         }
     });
+
+    document.addEventListener("mouseover", event => {
+        if (event.target.classList.contains("box")) {
+            const rect = event.target.getBoundingClientRect();
+        }
+    });
+
+    document.addEventListener("keypress", event => {
+        if (event.target.id !== "color-input" && (event.key.toLowerCase() === "n")) {
+            addBox();
+        }
+    });
 });
