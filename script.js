@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         newBox.id = "box-" + boxIDCounter.toString();
         newBox.classList.add("box");
         newBox.style.backgroundColor = boxColor;
+        newBox.textContent = newBox.id;
 
         boxContainer.appendChild(newBox);
     }
@@ -43,6 +44,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.addEventListener("mouseover", event => {
         if (event.target.classList.contains("box")) {
             const rect = event.target.getBoundingClientRect();
+            event.target.textContent = `x: ${rect.x} y: ${rect.y}`;
+        }
+    });
+
+    document.addEventListener("mouseout", event => {
+        if (event.target.classList.contains("box")) {
+            event.target.textContent = event.target.id;
         }
     });
 
